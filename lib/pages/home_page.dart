@@ -2,6 +2,7 @@
 //  Import LIBRARIES
 import 'package:flutter/material.dart';
 //  Import  FILES
+import '../data/questions.dart';
 import 'question_screen.dart';
 import 'start_page.dart';
 //  PARTS
@@ -20,7 +21,8 @@ class _HomePageState extends State<HomePage> {
   // Widget activeScreen = const StartPage(switchScreen);
   // Widget? activeScreen;
   String? activeScreen = 'start-screen';
-  final List<String> selectedAnswers = [];
+  // final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
 
   // @override
   // void initState() {
@@ -42,6 +44,18 @@ class _HomePageState extends State<HomePage> {
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = 'start-screen';
+      });
+    }
+    //  {
+    //   showResults();
+    // } else {
+    //   switchScreen();
+    // }
   }
 
   @override

@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   // Widget activeScreen = const StartPage(switchScreen);
   // Widget? activeScreen;
   String? activeScreen = 'start-screen';
+  final List<String> selectedAnswers = [];
 
   // @override
   // void initState() {
@@ -39,6 +40,10 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+  }
+
   @override
   Widget build(BuildContext context) {
     // Widget screenWidget = StartPage(switchScreen);
@@ -48,7 +53,9 @@ class _HomePageState extends State<HomePage> {
     //     : const QuestionScreen();
     Widget screenWidget = StartPage(switchScreen);
     if (activeScreen == 'question-screen') {
-      screenWidget = const QuestionScreen();
+      // screenWidget = const QuestionScreen();
+      // screenWidget = const QuestionScreen(chooseAnswer);
+      screenWidget = QuestionScreen(onSelectAnswer: chooseAnswer);
     }
 
     return Scaffold(

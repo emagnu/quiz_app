@@ -1,8 +1,7 @@
 //  //
 //  Import LIBRARIES
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 //  Import  FILES
 import '../data/questions.dart';
 import '../widgets/answer_button.dart';
@@ -45,12 +44,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
             Text(
               // 'The question ....',
               currentQuestion.text,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold),
+              style: GoogleFonts.lato(
+                // color: Colors.white,
+                color: const Color.fromARGB(255, 201, 153, 251),
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+              // style: const TextStyle(
+              //     color: Colors.white,
+              //     fontSize: 16.0,
+              //     fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
+            //  The Answers
             const SizedBox(height: 30.0),
             ...currentQuestion.getShuffledAnswers().map(
                   (answer) => AnswerButton(

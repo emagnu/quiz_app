@@ -1,6 +1,7 @@
 //  //
 //  Import LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 //  Import  FILES
 // import 'question_screen.dart';
 //  PARTS
@@ -32,10 +33,11 @@ class StartPage extends StatelessWidget {
           //   ),
           // ),
           const SizedBox(height: 80),
-          const Text(
+          Text(
             'Learn Flutter the fun way!',
-            style: TextStyle(
-              color: Color.fromARGB(255, 237, 223, 252),
+            // style: TextStyle(
+            style: GoogleFonts.lato(
+              color: const Color.fromARGB(255, 237, 223, 252),
               fontSize: 24,
             ),
           ),

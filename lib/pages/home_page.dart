@@ -18,22 +18,39 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // Widget activeScreen = const StartPage(switchScreen);
-  Widget? activeScreen;
+  // Widget? activeScreen;
+  String? activeScreen = 'start-screen';
 
-  @override
-  void initState() {
-    activeScreen = StartPage(switchScreen);
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   activeScreen = StartPage(switchScreen);
+  //   super.initState();
+  // }
+
+  // void switchScreen() {
+  //   setState(() {
+  //     activeScreen = const QuestionScreen();
+  //   });
+  // }
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionScreen();
+      activeScreen = 'question-screen';
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // Widget screenWidget = StartPage(switchScreen);
+    // Widget screenWidget = StartPage(switchScreen);
+    // final Widget screenWidget = activeScreen == 'start-screen'
+    //     ? StartPage(switchScreen)
+    //     : const QuestionScreen();
+    Widget screenWidget = StartPage(switchScreen);
+    if (activeScreen == 'question-screen') {
+      screenWidget = const QuestionScreen();
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
@@ -50,7 +67,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         // child: const StartPage(),
-        child: activeScreen,
+        // child: activeScreen,
+        // child: activeScreen == 'start-screen'
+        //     ? StartPage(switchScreen)
+        //     : const QuestionScreen(),
+        child: screenWidget,
       ),
     );
   }
